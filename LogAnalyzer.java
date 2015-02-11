@@ -37,18 +37,21 @@ public class LogAnalyzer
     }
 
     /**
-     * Print the hourly counts.
-     * These should have been set with a prior
+     * Print the hourly counts. // imprime los conteos por hora
+     * These should have been set with a prior //deben haber sido creados con anterioridad
      * call to analyzeHourlyData.
      */
     public void printHourlyCounts()
     {
         System.out.println("Hr: Count");
-        for(int hour = 0; hour < hourCounts.length; hour++) {
+        int hour = 0;
+        
+        while( hour < hourCounts.length) {
             System.out.println(hour + ": " + hourCounts[hour]);
+            hour++;
         }
     }
-    
+
     /**
      * Print the lines of data read by the LogfileReader
      */
