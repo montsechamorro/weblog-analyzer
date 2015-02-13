@@ -51,24 +51,42 @@ public class LogAnalyzer
 
     /**
      * metodo que devuelve el numero total de accesos al servidor web registrados
-     * e el archivo de log
+     * en el archivo de log
      */
     public int numberOfAccesses()
     {
         int totalAccesos = 0;
         int hour = 0;
-         while( hour < hourCounts.length)
+
+        while( hour < hourCounts.length)
         {
             totalAccesos =  totalAccesos + hourCounts[hour];
             hour++;
         }        
-        
+
         return totalAccesos;
     }
+
     /**
      * metodo que devuelve la hora en que el servidor tuvo que responder mas peticiones
      */
-    
+    public int busiestHour()
+    {
+        int horaMasPeticiones = 0;
+        int hour = 0;
+        int totalAccesos = 0;
+
+        while( hour < hourCounts.length)
+        {
+            if (hourCounts[hour] > totalAccesos)
+            {
+                totalAccesos = hourCounts[hour];
+                horaMasPeticiones = hour;                                
+            }
+            hour++;
+        }
+        return horaMasPeticiones;
+    }
 
     /**
      * Print the hourly counts.
