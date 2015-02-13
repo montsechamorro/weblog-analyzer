@@ -59,12 +59,16 @@ public class LogAnalyzer
         int hour = 0;
          while( hour < hourCounts.length)
         {
-            totalAccesos = hourCounts[hour];
+            totalAccesos =  totalAccesos + hourCounts[hour];
             hour++;
         }        
         
         return totalAccesos;
     }
+    /**
+     * metodo que devuelve la hora en que el servidor tuvo que responder mas peticiones
+     */
+    
 
     /**
      * Print the hourly counts.
