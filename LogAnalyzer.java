@@ -87,6 +87,34 @@ public class LogAnalyzer
         }
         return horaMasPeticiones;
     }
+    /**
+     * devuelve la hora en la que el servidor estuvo menos sobrecargado
+     */
+    public int quietestHour()
+    {
+        int horaMenosPeticiones = 0;
+        int hour = 0;
+        int totalAccesos = 237;
+
+        while( hour < hourCounts.length)
+        {
+            if (hourCounts[hour] < totalAccesos)
+            {
+                totalAccesos = hourCounts[hour];
+                horaMenosPeticiones = hour;                                
+            }
+            hour++;
+        }
+        return horaMenosPeticiones;
+    }
+    /**
+     * metodo que devuelve la primera hora de un periodo
+     * de dos horas consecutivas con más carga del día
+     */
+    
+    
+    
+    
 
     /**
      * Print the hourly counts.
