@@ -94,7 +94,7 @@ public class LogAnalyzer
     {
         int horaMenosPeticiones = 0;
         int hour = 0;
-        int totalAccesos = 237;
+        int totalAccesos = 1000;
 
         while( hour < hourCounts.length)
         {
@@ -111,7 +111,30 @@ public class LogAnalyzer
      * metodo que devuelve la primera hora de un periodo
      * de dos horas consecutivas con más carga del día
      */
-    
+    public int firstHoursTwo()
+    {
+        int hour = 0;
+        int horaMasPeticiones = 0;
+        int totalAccesos = 0;
+        int accesos = 0;
+        
+        while( hour < hourCounts.length)
+        {
+            accesos = hourCounts[hour];
+            hour++;
+            accesos = accesos + hourCounts[hour];
+            
+            if(accesos > totalAccesos)
+            {
+                horaMasPeticiones = hour -1;
+                totalAccesos = accesos;
+            }
+            hour++;
+        }
+        return horaMasPeticiones;
+    }
+        
+           
     
     
     
