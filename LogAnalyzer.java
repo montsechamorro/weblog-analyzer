@@ -25,15 +25,15 @@ public class LogAnalyzer
         // Create the reader to obtain the data.
         reader = new LogfileReader();
     }
+
     /**
-     * constructor que se pasa parametro del nombre del archivo log a analizar
+     * constructor que se pasa parametro del nombre del archivo log a analizar, creado con LogFileCreator
      */
     public LogAnalyzer(String filename)
     {
         hourCounts = new int[24];
         reader = new LogfileReader(filename);
     }
-        
 
     /**
      * Analyze the hourly access data from the log file.  
@@ -50,6 +50,23 @@ public class LogAnalyzer
     }
 
     /**
+     * metodo que devuelve el numero total de accesos al servidor web registrados
+     * e el archivo de log
+     */
+    public int numberOfAccesses()
+    {
+        int totalAccesos = 0;
+        int hour = 0;
+         while( hour < hourCounts.length)
+        {
+            totalAccesos = hourCounts[hour];
+            hour++;
+        }        
+        
+        return totalAccesos;
+    }
+
+    /**
      * Print the hourly counts.
      * // imprime los conteos por hora
      * These should have been set with a prior 
@@ -60,7 +77,7 @@ public class LogAnalyzer
     {
         System.out.println("Hr: Count");
         int hour = 0;
-        
+
         while( hour < hourCounts.length) {
             System.out.println(hour + ": " + hourCounts[hour]);
             hour++;
