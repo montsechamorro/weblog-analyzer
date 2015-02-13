@@ -7,13 +7,15 @@
  */
 public class LogAnalyzer
 {
-    // Where to calculate the hourly access counts.
+    // Where to calculate the hourly access counts.  ///cálculo de los recuentos de acceso por hora
     private int[] hourCounts;
-    // Use a LogfileReader to access the data.
+    // Use a LogfileReader to access the data.  ///usa un logfilereader para acceder a los datos
     private LogfileReader reader;
 
     /**
      * Create an object to analyze hourly web accesses.
+     * 
+     * //crear objeto para analizar los accesos web por hora
      */
     public LogAnalyzer()
     { 
@@ -23,9 +25,20 @@ public class LogAnalyzer
         // Create the reader to obtain the data.
         reader = new LogfileReader();
     }
+    /**
+     * constructor que se pasa parametro del nombre del archivo log a analizar
+     */
+    public LogAnalyzer(String filename)
+    {
+        hourCounts = new int[24];
+        reader = new LogfileReader(filename);
+    }
+        
 
     /**
-     * Analyze the hourly access data from the log file.
+     * Analyze the hourly access data from the log file.  
+     * 
+     * //Analizar los datos de acceso por hora desde el archivo de registro
      */
     public void analyzeHourlyData()
     {
@@ -37,8 +50,10 @@ public class LogAnalyzer
     }
 
     /**
-     * Print the hourly counts. // imprime los conteos por hora
-     * These should have been set with a prior //deben haber sido creados con anterioridad
+     * Print the hourly counts.
+     * // imprime los conteos por hora
+     * These should have been set with a prior 
+     * //deben haber sido creados con anterioridad
      * call to analyzeHourlyData.
      */
     public void printHourlyCounts()
@@ -54,6 +69,7 @@ public class LogAnalyzer
 
     /**
      * Print the lines of data read by the LogfileReader
+     * //Imprimir las líneas de datos leídos por el LogfileReader
      */
     public void printData()
     {

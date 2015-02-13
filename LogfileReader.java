@@ -21,16 +21,17 @@ import java.util.Scanner;
  */
 public class LogfileReader implements Iterator<LogEntry>
 {
-    // The data format in the log file.
+    // The data format in the log file.   ///El formato de los datos en el archivo de registro
     private String format;
-    // Where the file's contents are stored in the form
-    // of LogEntry objects.
+    // Where the file's contents are stored in the form      
+    // of LogEntry objects.   
     private ArrayList<LogEntry> entries;
-    // An iterator over entries.
+    // An iterator over entries.     ///Un iterador sobre los asientos.
     private Iterator<LogEntry> dataIterator;
     
     /**
      * Create a LogfileReader to supply data from a default file.
+     * ///Crear un LogfileReader para suministrar datos de un archivo por defecto
      */
     public LogfileReader()
     {
@@ -40,6 +41,7 @@ public class LogfileReader implements Iterator<LogEntry>
     /**
      * Create a LogfileReader that will supply data
      * from a particular log file. 
+     * /// Crear un LogfileReader que suministrará los datos de un archivo de registro en particular
      * @param filename The file of log data.
      */
     public LogfileReader(String filename)
@@ -90,7 +92,8 @@ public class LogfileReader implements Iterator<LogEntry>
     
     /**
      * Does the reader have more data to supply?
-     * @return true if there is more data available,
+     * ///¿El lector tiene más datos para suministrar?
+     * @return true if there is more data available,    //true si hay mas datos disponibles
      *         false otherwise.
      */
     public boolean hasNext()
@@ -101,9 +104,12 @@ public class LogfileReader implements Iterator<LogEntry>
     /**
      * Analyze the next line from the log file and
      * make it available via a LogEntry object.
+     * ////Analizar la siguiente línea del archivo de registro y hacer que esté disponible a través de un objeto LogEntry.
      * 
      * @return A LogEntry containing the data from the
      *         next log line.
+     *         // un LogEntry que contiene los datos de la
+        siguiente línea de registro
      */
     public LogEntry next()
     {
@@ -111,8 +117,8 @@ public class LogfileReader implements Iterator<LogEntry>
     }
     
     /**
-     * Remove an entry.
-     * This operation is not permitted.
+     * Remove an entry.   /// elimina una entrada
+     * This operation is not permitted.   /// no se permite esta operación
      */
     public void remove()
     {
@@ -122,6 +128,7 @@ public class LogfileReader implements Iterator<LogEntry>
     /**
      * @return A string explaining the format of the data
      *         in the log file.
+     *         // retorna un string explicando el formato de los datos en el archivo de registro
      */
     public String getFormat()
     {
@@ -130,8 +137,10 @@ public class LogfileReader implements Iterator<LogEntry>
     
     /**
      * Set up a fresh iterator to provide access to the data.
+     * //Establecer un iterador para proporcionar acceso a los datos
      * This allows a single file of data to be processed
      * more than once.
+     * /// Esto permite que un único archivo de datos sea procesado más de una vez
      */
     public void reset()
     {
@@ -150,8 +159,10 @@ public class LogfileReader implements Iterator<LogEntry>
 
     /**
      * Provide a sample of simulated data.
+     * ///Proporcionar una muestra de datos simulados
      * NB: To simplify the creation of this data, no
      * days after the 28th of a month are ever generated.
+     * ////Para simplificar la creación de estos datos, después del día 28 de un mes se generan cada vez.
      * @param data Where to store the simulated LogEntry objects.
      */
     private void createSimulatedData(ArrayList<LogEntry> data)
